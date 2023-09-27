@@ -6,9 +6,11 @@ public class RobustScanner_v2 {
         System.out.print("How old are you? ");
         boolean ageEntered = console.hasNextInt();
         while (!ageEntered) {
-            System.out.println("You didn't type a valid age (an integer).");
+//            console.next();   // discard the non-integer token...or...
+            // get the non-integer token so we can provide an “intelligent” error message
+            String invalidAge = console.next();   // get the non-integer token so we can have
+            System.out.println(invalidAge + " is not a valid age.");
             System.out.print("How old are you? ");
-            console.next();   // discard the non-integer token
             ageEntered = console.hasNextInt();  // check the next token
         }
         // if we get here, we know the user typed an integer
